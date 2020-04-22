@@ -1,3 +1,4 @@
+/*
 package com.galbern.budget.security;
 
 import org.springframework.context.annotation.Bean;
@@ -25,7 +26,7 @@ import org.springframework.security.web.authentication.logout.LogoutSuccessHandl
         auth.inMemoryAuthentication()
                 .withUser("user1").password("password").roles("USER")
                 .and()
-                .withUser("user2").password(passwordEncoder().encode("password")).roles("USER")
+                .withUser("user2").password(passwordEncoder().encode("pass")).roles("USER")
                 .and()
                 .withUser("admin").password(passwordEncoder().encode("adminPass")).roles("ADMIN");
     }
@@ -54,7 +55,8 @@ import org.springframework.security.web.authentication.logout.LogoutSuccessHandl
         ;
     }
 
-  /*  private LogoutSuccessHandler logoutSuccessHandler() {
+  */
+/*  private LogoutSuccessHandler logoutSuccessHandler() {
         return null;
     }
 
@@ -62,7 +64,8 @@ import org.springframework.security.web.authentication.logout.LogoutSuccessHandl
         try{ }
         catch(Exception e){ }
         return null;
-    }*/
+    }*//*
+
 
    @Bean
     public PasswordEncoder passwordEncoder() {
@@ -71,3 +74,4 @@ import org.springframework.security.web.authentication.logout.LogoutSuccessHandl
 }
 
 
+*/

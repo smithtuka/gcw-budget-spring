@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name ="Users")
+@Table(name ="USERS")
     //@EmbeddedId / @IdClass(UserId.class) - composite key
     //@AttributeOverride(name = "fName", column = @Column(name = "fName", insertable = false, updatable = false)
     // ignoring sm of parent attributes above

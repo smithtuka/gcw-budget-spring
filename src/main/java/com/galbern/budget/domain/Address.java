@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="Address")
+@Table(name="ADDRESSES")
 //@MappedSuperclass
 public class Address implements Serializable{ //
     public static final long serialVersionUID = 1l;
