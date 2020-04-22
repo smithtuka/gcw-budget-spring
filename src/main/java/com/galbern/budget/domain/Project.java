@@ -11,7 +11,7 @@ public class Project {
     private long projectId;
     private String name;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name="customer_id", nullable = false)
+    @JoinColumn(name="customer_id", nullable = true)
     private Customer customer;
 
     @OneToMany(mappedBy="project")
@@ -26,7 +26,7 @@ public class Project {
 //            @AttributeOverride( name = "state", column = @Column(name = "add_city"))
 //})
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name="address")
+    @JoinColumn(name="address",  nullable = true)
     private Address address;
     private Boolean isActive;
 
