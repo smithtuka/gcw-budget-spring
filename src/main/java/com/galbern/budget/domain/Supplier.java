@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 @Entity
-@Table(name="Suppliers")
+@Table(name="SUPPLIERS")
 public class Supplier extends Person implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -3,7 +3,7 @@ package com.galbern.budget.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Items")
+@Table(name="ITEMS")
 //@Embeddable // preferred when its Value Object  - this is an Entity object
 public class Item {
     @Id

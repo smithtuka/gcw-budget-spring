@@ -1,13 +1,26 @@
 package com.galbern.budget.controller;
 
+import com.galbern.budget.domain.Customer;
 import com.galbern.budget.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Set;
 
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
     @Autowired
     CustomerService customerService;
+
+    @PostMapping
+    public String addCustomer(@RequestBody Customer customer){
+        Customer c = customerService.addCustomer(customer);
+        return c.getfName()+ " successfully added";
+    }
+    @GetMapping
+    public Set<Customer> getCustomers(){
+        return (Set<Customer>)customerService.getCustomers();
+
+    }
 }

@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
-@Table(name="Stages")
+@Table(name="STAGES")
 //@Embeddable // again not a Value object
 public class Stage {
     @Id

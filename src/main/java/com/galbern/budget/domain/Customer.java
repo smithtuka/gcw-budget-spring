@@ -4,13 +4,13 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="Customers")
+@Table(name="CUSTOMERS") //, schema = ""
 public class Customer extends Person{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name ="proj_id", nullable=false)
+    @JoinColumn(name ="projectId", nullable=true)
     private Project project;
 
     public Customer() {
@@ -35,5 +35,34 @@ public class Customer extends Person{
 
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", project=" + project +
+                "} " + super.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Customer)) return false;
+        if (!super.equals(o)) return false;
+
+        Customer customer = (Customer) o;
+
+        if (id != customer.id) return false;
+        return project != null ? project.equals(customer.project) : customer.project == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + (int) (id ^ (id >>> 32));
+        result = 31 * result + (project != null ? project.hashCode() : 0);
+        return result;
     }
 }
