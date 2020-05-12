@@ -12,7 +12,8 @@ public class Item {
     private String name;
     private double quantity;
     private double price;
-    private String comment; // desired supplier
+    private boolean isActive = true;
+    private String comment=""; // desired supplier
     @OneToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="supplier_id", nullable = true)
     private Supplier supplier;
@@ -29,6 +30,22 @@ public class Item {
     }
 
     public Item() {
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    public Supplier getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
     }
 
     public Stage getStage() {

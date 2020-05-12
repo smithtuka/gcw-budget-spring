@@ -18,6 +18,7 @@ public class Stage {
     @JoinColumn( name="project_id", nullable = false) // here stage owns the rlnshp
     private Project project;
     @OneToMany(mappedBy="stage", fetch=FetchType.LAZY, cascade = CascadeType.ALL) // Items is owner of the rlshnp
+//    @JoinColumn( nullable = true)
     private Set<Item> items;
     Boolean isActive;
 
