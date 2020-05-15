@@ -16,7 +16,7 @@ public class CustomerController {
     @PostMapping
     public String addCustomer(@RequestBody Customer customer){
         Customer c = customerService.addCustomer(customer);
-        return c.getfName()+ " successfully added";
+        return  " successfully added"; //c.getfName()+
     }
     @GetMapping
     public Set<Customer> getCustomers(){

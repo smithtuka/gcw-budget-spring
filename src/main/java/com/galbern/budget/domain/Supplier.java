@@ -17,10 +17,6 @@ public class Supplier extends Person implements Serializable {
     public Supplier() {
     }
 
-    public Supplier(String fName, String lName, String phone, Address address) {
-        super(fName, lName, phone, address);
-    }
-
     public Set<Item> getItems() {
         return items;
     }
@@ -29,37 +25,5 @@ public class Supplier extends Person implements Serializable {
         this.items = items;
     }
 
-    @Override
-    public void setId(long id) {
-        this.id = id;
-    }
-    @Override
-    public long getId() {
-        return id;
-    }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Supplier)) return false;
-        if (!super.equals(o)) return false;
-
-        Supplier supplier = (Supplier) o;
-
-        return id == supplier.id;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (int) (id ^ (id >>> 32));
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Supplier{" +
-                "id=" + id +
-                "} " + super.toString();
-    }
 }
