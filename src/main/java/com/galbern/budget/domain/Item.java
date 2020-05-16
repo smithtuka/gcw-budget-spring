@@ -1,7 +1,9 @@
 package com.galbern.budget.domain;
 
 import javax.persistence.*;
-
+    import lombok.*;
+    @Data
+    @NoArgsConstructor
 @Entity
 @Table(name="ITEMS")
 //@Embeddable // preferred when its Value Object  - this is an Entity object
@@ -13,9 +15,10 @@ public class Item {
     private double quantity;
     private double price;
     private boolean isActive = true;
+
     private String comment=""; // desired supplier
     @OneToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="supplier_id", nullable = true)
+    @JoinColumn(name= "id", nullable = true)
     private Supplier supplier;
 
     @ManyToOne
@@ -29,81 +32,5 @@ public class Item {
         this.comment = comment;
     }
 
-    public Item() {
-    }
 
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
-    }
-
-    public Supplier getSupplier() {
-        return supplier;
-    }
-
-    public void setSupplier(Supplier supplier) {
-        this.supplier = supplier;
-    }
-
-    public Stage getStage() {
-        return stage;
-    }
-
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(double quantity) {
-        this.quantity = quantity;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
-    @Override
-    public String toString() {
-        return "Item{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", quantity=" + quantity +
-                ", price=" + price +
-                ", comment='" + comment + '\'' +
-                '}';
-    }
 }

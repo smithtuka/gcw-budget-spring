@@ -24,12 +24,9 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public Set<Address> getAddresses() {
-        // test injection
-        Address a = new Address("w","ww","d","i");
-        a.setId(3);
 
         Set<Address> set = new HashSet<Address>(addressDao.findAll());
-        set.add(a);
+
 //        set.addAll((Set<Address>)addressDao.findAll());
 //        for(Address a : addressDao.findAll() )set.add(a);
         return set;

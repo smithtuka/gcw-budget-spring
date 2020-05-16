@@ -4,7 +4,10 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
-
+import lombok.*;
+@EqualsAndHashCode(callSuper=false)
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name ="USERS")
     //@EmbeddedId / @IdClass(UserId.class) - composite key
@@ -18,16 +21,13 @@ public class User extends Person implements Serializable { // class of composite
 
     private String username;
     private String password;
-    private Boolean isActive;
+    private Boolean isActive = true;
     @Enumerated(EnumType.STRING) // otherwise wd automatically be mapped to value 0--- (ORDINAL)
     private Role role;
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
-        isActive = true;
-    }
-    public User() {
     }
 
 

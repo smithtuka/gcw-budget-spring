@@ -2,7 +2,11 @@ package com.galbern.budget.domain;
 
 import javax.persistence.*;
 import java.util.List;
+import lombok.*;
 
+@EqualsAndHashCode(callSuper=false)
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name="CUSTOMERS") //, schema = ""
 public class Customer extends Person{
@@ -13,9 +17,7 @@ public class Customer extends Person{
     @JoinColumn(name ="projectId", nullable=true)
     private Project project;
 
-    public Customer() {
 
-    }
 
 
 }
