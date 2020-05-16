@@ -1,11 +1,19 @@
 package com.galbern.budget.domain;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import org.hibernate.envers.Audited;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Set;
-
+@EqualsAndHashCode(callSuper = false)
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name="STAGES")
+@Audited
 //@Embeddable // again not a Value object
 public class Stage {
     @Id
@@ -22,94 +30,5 @@ public class Stage {
     private Set<Item> items;
     Boolean isActive;
 
-    public Stage() {
 
-    }
-
-    public Stage(String name, short stageNum, Project project) {
-        this.name = name;
-        this.stageNum = stageNum;
-        this.project = project;
-        isActive = true;
-    }
-
-    public void setStageId(long stageId) {
-        this.stageId = stageId;
-    }
-
-    public Set<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(Set<Item> items) {
-        this.items = items;
-    }
-
-    public long getStageId() {
-        return stageId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public short getStageNum() {
-        return stageNum;
-    }
-
-    public Project getProject() {
-        return project;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setStageNum(short stageNum) {
-        this.stageNum = stageNum;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
-    }
-
-    public Boolean getActive() {
-        return isActive;
-    }
-
-    public void setActive(Boolean active) {
-        isActive = active;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Stage)) return false;
-
-        Stage stage = (Stage) o;
-
-        if (stageId != stage.stageId) return false;
-        if (stageNum != stage.stageNum) return false;
-        if (name != null ? !name.equals(stage.name) : stage.name != null) return false;
-        return project != null ? project.equals(stage.project) : stage.project == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) (stageId ^ (stageId >>> 32));
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (int) stageNum;
-        result = 31 * result + (project != null ? project.hashCode() : 0);
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Stage{" +
-                "id=" + stageId +
-                ", name='" + name + '\'' +
-                ", stageNum=" + stageNum +
-//                ", project=" + project +
-                '}';
-    }
 }

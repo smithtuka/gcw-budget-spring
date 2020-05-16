@@ -1,5 +1,7 @@
 package com.galbern.budget.domain;
 import lombok.Data;
+import org.hibernate.envers.Audited;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -16,7 +18,7 @@ public abstract class Person {
     protected String phone;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="address", nullable=true)
+    @JoinColumn(name="Address", nullable=true)
     private Address address;
 
     public Person() {

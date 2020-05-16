@@ -1,8 +1,11 @@
 package com.galbern.budget.service.Impl;
+import com.galbern.budget.domain.Address;
+
 
 import com.galbern.budget.dao.AddressDao;
-import com.galbern.budget.domain.Address;
 import com.galbern.budget.service.AddressService;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +29,6 @@ public class AddressServiceImpl implements AddressService {
     public Set<Address> getAddresses() {
 
         Set<Address> set = new HashSet<Address>(addressDao.findAll());
-
 //        set.addAll((Set<Address>)addressDao.findAll());
 //        for(Address a : addressDao.findAll() )set.add(a);
         return set;

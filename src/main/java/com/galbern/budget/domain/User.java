@@ -5,11 +5,14 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
 import lombok.*;
+import org.hibernate.envers.Audited;
+
 @EqualsAndHashCode(callSuper=false)
 @Data
 @NoArgsConstructor
 @Entity
 @Table(name ="USERS")
+@Audited
     //@EmbeddedId / @IdClass(UserId.class) - composite key
     //@AttributeOverride(name = "fName", column = @Column(name = "fName", insertable = false, updatable = false)
     // ignoring sm of parent attributes above
